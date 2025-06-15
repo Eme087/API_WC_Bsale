@@ -22,6 +22,7 @@ BASE_URL = "https://api.bsale.cl"
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
+    print("🚀 Esta es la nueva versión del webhook que se acaba de desplegar")
     try:
         data = request.get_json(force=True)
         print("📥 Webhook recibido:")
