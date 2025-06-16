@@ -8,17 +8,17 @@ app = Flask(__name__)
 
 # === WooCommerce config ===
 wcapi = API(
-    url="https://imperiopatitas.cl/",
-    consumer_key="ck_417fa06639ffd13c3af85797d0ab5835dc708c1c",
-    consumer_secret="cs_6f077418b4a0be3f4c3108ca275d7541fed1313f",
+    url=os.environ.get("WC_URL", ""),
+    consumer_key=os.environ.get("WC_CONSUMER_KEY", ""),
+    consumer_secret=os.environ.get("WC_CONSUMER_SECRET", ""),
     version="wc/v3",
     timeout=20
 )
 
 # === Bsale config ===
-BSALE_TOKEN = "f33bc19ae54eb12d58050f79ca22f105edd6bc32"
+BSALE_TOKEN = os.environ.get("BSALE_TOKEN", "")
 HEADERS = {"access_token": BSALE_TOKEN}
-BASE_URL = "https://api.bsale.cl"
+BASE_URL = os.environ.get("BSALE_BASE_URL", "")
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
