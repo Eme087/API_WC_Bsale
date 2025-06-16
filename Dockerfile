@@ -4,7 +4,6 @@ WORKDIR /app
 
 COPY requirements.txt ./
 COPY webhook_receiver.py ./
-COPY .env ./
 
 RUN pip install --no-cache-dir -r requirements.txt
 
